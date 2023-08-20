@@ -1,0 +1,82 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SocialMediaIcon from '../components/SocialMediaIcon.astro';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style></style>
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <h1>Joining us is easy! Just follow us</h1>
+      <p>Page not found</p>
+      <SocialMediaIcon
+        title="Follow us on Facebook"
+        icon="facebook"
+        link="https://facebook.com/dalchess"
+      />
+
+      <SocialMediaIcon
+        title="Follow us on Instagram"
+        icon="instagram"
+        link="https://instagram.com/dalchess"
+      />
+
+      <SocialMediaIcon
+        title="Join our Discord"
+        icon="discord"
+        link="https://discord.gg/rjVPspkGwE"
+      />
+
+      <!-- create a form to joint the mailing list -->
+      <form
+        action="https://dal.us4.list-manage.com/subscribe/post?u=8b9b0b0b0b0b0b0b0b0b0b0b0&id=0b0b0b0b0b"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="validate"
+        target="_blank"
+        novalidate
+      >
+        <div id="mc_embed_signup_scroll">
+          <label for="mce-EMAIL">Subscribe to our mailing list</label>
+          <input
+            type="email"
+            value=""
+            name="EMAIL"
+            class="email"
+            id="mce-EMAIL"
+            placeholder="email address"
+            required
+          />
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input
+              type="text"
+              name="b_8b9b0b0b0b0b0b0b0b0b0b0b0_0b0b0b0b0"
+              tabindex="-1"
+              value=""
+            />
+          </div>
+          <div class="clear">
+            <input
+              type="submit"
+              value="Subscribe"
+              name="subscribe"
+              id="mc-embedded-subscribe"
+              class="button"
+            />
+          </div>
+        </div>
+      </form>
+      <Footer />
+    </main>
+  </body>
+</html>

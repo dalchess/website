@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon';
+
+type SocialIcon = 'discord' | 'instagram' | 'facebook';
+
+interface Props {
+  link: string;
+  title: string;
+  icon: SocialIcon;
+}
+
+const { link, title, icon } = Astro.props;
+---
+
+<a href={link} target="_blank">
+  <span class="sr-only">{title}</span>
+  <Icon name={icon} />
+</a>
+
+<style lang="css">
+  [astro-icon] {
+    width: 64px;
+    height: 64px;
+    margin: 3px;
+  }
+</style>

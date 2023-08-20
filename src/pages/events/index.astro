@@ -6,8 +6,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+const events = (await getCollection('events')).sort(
+  (a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf()
 );
 ---
 
@@ -91,18 +91,18 @@ const posts = (await getCollection('blog')).sort(
       <section>
         <ul>
           {
-            posts.map((post) => (
+            events.map((event) => (
               <li>
-                <a href={`/blog/${post.slug}/`}>
+                <a href={`/events/${event.slug}/`}>
                   <img
                     width={720}
                     height={360}
-                    src={post.data.heroImage}
+                    src={event.data.heroImage}
                     alt=""
                   />
-                  <h4 class="title">{post.data.title}</h4>
+                  <h4 class="title">{event.data.title}</h4>
                   <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
+                    <FormattedDate date={event.data.eventDate} />
                   </p>
                 </a>
               </li>
