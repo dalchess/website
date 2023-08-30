@@ -2,7 +2,7 @@
 title: 'CUCC Qualifier'
 description: 'CUCC Qualifier'
 eventDate: 'Oct 21 2023'
-heroImage: '/events/dal-open-2023.jpg'
+heroImage: '/events/Logo.png'
 ---
 
 Time Control: Game in 90 minutes with a 30-seconds increment from move 1.

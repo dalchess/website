@@ -2,7 +2,7 @@
 title: 'Dal Open 2023'
 description: 'Dalhousie Open '
 eventDate: 'Sept 16 2023'
-heroImage: '/events/dal-open-2023.jpg'
+heroImage: '/events/dalopen.png'
 ---
 
 Time Control: Game in 90 minutes with a 30-seconds increment from move 1.

@@ -2,7 +2,7 @@
 title: 'Owen Maitzen Rapid Open (DCC Qualifier)'
 description: 'Owen Maitzent'
 eventDate: 'October 1, 2023'
-heroImage: '/events/dal-open-2023.jpg'
+heroImage: '/events/OwenMaitzen.png'
 ---
 
 Time control: Game in 25 minutes with a 5-seconds delay
