@@ -14,13 +14,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       @media (min-width: 480px) {
         .wrapper {
           display: flex;
+          text-align: center;
         }
         .left-sidebar {
           width: 20%;
         }
         .main-content {
-          width: 60%;
-          margin: 0 auto;
+          width: 100%;
+          margin: auto;
+          padding-top: 5%;
+          text-align: center;
         }
         .right-sidebar {
           width: 20%;
@@ -41,26 +44,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <p>
         we're here to run exciting tournaments, host socials, and organize seminars!
       </p>
-    </div>
-    <div class="left-sidebar">
-      <div class="socials">
-        <SocialMediaIcon
-          title="Follow us on Facebook"
-          icon="facebook"
-          link="https://facebook.com/dalchess"
-        />
-        <SocialMediaIcon
-          title="Follow us on Instagram"
-          icon="instagram"
-          link="https://instagram.com/dalchess"
-        />
-        <SocialMediaIcon
-          title="Join our Discord"
-          icon="discord"
-          link="https://discord.gg/rjVPspkGwE"
-        />
-      </div>
-      <div class="right-sidebar">asa</div>
-    </div>
+      <Footer />
   </body>
 </html>
