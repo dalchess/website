@@ -67,12 +67,18 @@ import SocialMediaIcon from './SocialMediaIcon.astro';
   }
   nav a.active {
     text-decoration: none;
-    border-bottom-color: #FAC800;
+    border-bottom-color: black;
+    color: black;
   }
+
   .social-links,
   .social-links a {
     display: flex;
+    
   }
+   .social-links {
+      display: none;
+    }
   @media (max-width: 720px) {
     .social-links {
       display: none;
