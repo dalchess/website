@@ -35,7 +35,7 @@ const events = (await getCollection('events')).sort(
         transition: 0.2s ease;
       }
       ul li:first-child {
-        width: 100%;
+        max-width: 100%;
         margin-bottom: 1rem;
         text-align: center;
       }
@@ -68,6 +68,9 @@ const events = (await getCollection('events')).sort(
       ul a:hover img {
         box-shadow: var(--box-shadow);
       }
+      h2{
+        text-align:center;
+      }
       @media (max-width: 720px) {
         ul {
           gap: 0.5em;
@@ -88,7 +91,8 @@ const events = (await getCollection('events')).sort(
   <body>
     <Header />
     <main>
-      <section>
+      <section> 
+        <h2>Check out our touniments we have planed for this year!</h2>
         <ul>
           {
             events.map((event) => (
