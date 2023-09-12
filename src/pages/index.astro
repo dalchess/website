@@ -15,12 +15,12 @@ import FormattedDate from '../components/FormattedDate.astro';
     text-align: center;
   }
   .left-sidebar {
-    width: 30%;
+    width: 33%;
   }
   .main-content {
     width: 100%;
     margin: auto;
-    padding-top: 5%;
+    padding-top: 2%;
     text-align: center;
   }
   .right-sidebar {
@@ -32,17 +32,73 @@ import FormattedDate from '../components/FormattedDate.astro';
     display: flex;
     flex-direction: column;
   }
+  main {
+        width: 960px;
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        width: calc(50% - 1rem);
+      }
+      ul li * {
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      ul li img {
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        max-width: 50%;
+      }
+      ul li a {
+        display: block;
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        line-height: 1;
+      }
+      .date {
+        margin: 0;
+        color: rgb(var(--gray));
+      }
+      ul li a:hover h4,
+      ul li a:hover .date {
+        color: #FAC800;
+      }
+      ul a:hover img {
+        box-shadow: var(--box-shadow);
+      }
+      h2{
+        text-align:center;
+      }
+      @media (max-width: 720px) {
+        ul {
+          gap: 0.5em;
+        }
+        ul li {
+          max-width: 100%;
+          text-align: center;
+        }
+        ul li:first-child {
+          margin-bottom: 0;
+        }
+        ul li:first-child .title {
+          font-size: 1.563em;
+        }
+      }
 </style>
-
 <Header />
 
 <div class="wrapper">
   <div class="main-content">
     <h1>♜ Dalhousie Chess Club ♜</h1>
     <p>We're here to run exciting tournaments, host socials, and organize seminars!</p>
-
-    <div class="left-sidebar">
-      <h5>Check out our next Tournament!</h5>
       <ul>
         {
           (async () => {
@@ -51,6 +107,7 @@ import FormattedDate from '../components/FormattedDate.astro';
             const firstEvent = events[0];
             return (
               <li>
+                <h5>Check out our next Tournament!</h5>
                 <a href={`/events/${firstEvent.slug}/`}>
                   <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
                   <h4 class="title">{firstEvent.data.title}</h4>
@@ -60,10 +117,26 @@ import FormattedDate from '../components/FormattedDate.astro';
             );
           })()
         }
-        
+        {
+          (async () => {
+            const socials = await getCollection('socials');
+            const currentDate = new Date(); 
+            const upcomingSocials = socials
+              .filter(social => new Date(social.data.eventDate) > currentDate)
+              .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+            const firstSocial = upcomingSocials[0];
+            return (
+              <li>
+                <h5>Come to our next Studley Social 6-9pm!</h5>
+                <img width={720} height={360} src={"/events/Logo.png"} alt="" />
+                <h4 class="location">{firstSocial.data.location}</h4>
+                <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
+              </li>
+            );
+          })()
+        }
       </ul>
-    </div>
+
   </div>
 </div>
-
 <Footer />
