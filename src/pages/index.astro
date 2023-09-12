@@ -2,47 +2,68 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import SocialMediaIcon from '../components/SocialMediaIcon.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      @media (min-width: 480px) {
-        .wrapper {
-          display: flex;
-        }
-        .left-sidebar {
-          width: 20%;
-        }
-        .main-content {
-          width: 100%;
-          margin: auto;
-          padding-top: 5%;
-          text-align: center;
-        }
-        .right-sidebar {
-          width: 20%;
-        }
-        .socials {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <div class="wrapper"></div>
-    <div class="main-content">
-      <h1>♜ Dalhousie Chess Club ♜</h1>
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
-      <p>
-        we're here to run exciting tournaments, host socials, and organize seminars!
-      </p>
-      <Footer />
-  </body>
-</html>
+<style>
+  .wrapper {
+    display: flex;
+    text-align: center;
+  }
+  .left-sidebar {
+    width: 30%;
+  }
+  .main-content {
+    width: 100%;
+    margin: auto;
+    padding-top: 5%;
+    text-align: center;
+  }
+  .right-sidebar {
+    width: 20%;
+    text-align: center;
+    background-color: grey;
+  }
+  .socials {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<Header />
+
+<div class="wrapper">
+  <div class="main-content">
+    <h1>♜ Dalhousie Chess Club ♜</h1>
+    <p>We're here to run exciting tournaments, host socials, and organize seminars!</p>
+
+    <div class="left-sidebar">
+      <h5>Check out our next Tournament!</h5>
+      <ul>
+        {
+          (async () => {
+            const events = await getCollection('events');
+            events.sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+            const firstEvent = events[0];
+            return (
+              <li>
+                <a href={`/events/${firstEvent.slug}/`}>
+                  <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
+                  <h4 class="title">{firstEvent.data.title}</h4>
+                  <p class="date"><FormattedDate date={firstEvent.data.eventDate} /></p>
+                </a>
+              </li>
+            );
+          })()
+        }
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<Footer />
