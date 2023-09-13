@@ -30,7 +30,14 @@ const events = defineCollection({
     heroImage: z.string().optional(),
   }),
 });
-const socials = defineCollection({
+const studleySocials = defineCollection({
+  // Type-check frontmatter using a schema
+  schema: z.object({
+    eventDate: z.string().transform((val) => new Date(val)),
+    location: z.string().optional(),
+  }),
+});
+const sextonSocials = defineCollection({
   // Type-check frontmatter using a schema
   schema: z.object({
     eventDate: z.string().transform((val) => new Date(val)),
@@ -40,4 +47,6 @@ const socials = defineCollection({
 
 
 
-export const collections = { blog, events,socials };
+
+
+export const collections = { blog, events,studleySocials,sextonSocials };

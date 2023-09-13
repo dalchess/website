@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+const currentDate = new Date();
 ---
 <style>
 .flex-container {
@@ -67,6 +68,8 @@ import FormattedDate from '../components/FormattedDate.astro';
     {
       (async () => {
         const events = await getCollection('events');
+        const upcomingEvents = events
+        .filter(event => new Date(event.data.eventDate) > currentDate)
         events.sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
         const firstEvent = events[0];
         return (
@@ -83,8 +86,7 @@ import FormattedDate from '../components/FormattedDate.astro';
     }
     {
       (async () => {
-        const socials = await getCollection('socials');
-        const currentDate = new Date();
+        const socials = await getCollection('studleySocials');
         const upcomingSocials = socials
           .filter(social => new Date(social.data.eventDate) > currentDate)
           .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
@@ -99,12 +101,23 @@ import FormattedDate from '../components/FormattedDate.astro';
         );
       })()
     }
-    <div class="flex-item">
-      <h5>Come to our next Sexton Social 6-8pm!</h5>
-      <img src={"logo.png"} alt="" />
-      <h4 class="location">Room G214 in the G.H. Murray Building</h4>
-      <p class="date">Sep, 19 2023</p>
-    </div>
+        {
+            (async () => {
+              const sextonsocials = await getCollection('sextonSocials');
+              const upcomingsextonSocials = sextonsocials
+                .filter(sextonsocial => new Date(sextonsocial.data.eventDate) > currentDate)
+                .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+              const firstSocial = upcomingsextonSocials[0];
+              return (
+                <div class="flex-item">
+                  <h5>Come to our next Sexton Social 6-8pm!</h5>
+                  <img width={720} height={360} src={"logo.png"} alt="" />
+                  <h4 class="location">{firstSocial.data.location}</h4>
+                  <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
+                </div>
+              );
+            })()
+          }
   </div>
 </div>
 </div>
