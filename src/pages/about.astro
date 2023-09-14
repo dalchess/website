@@ -1,7 +1,46 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
 ---
-
+<style>
+  main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+      article {
+        display: flex;
+      }
+      .hero-image {
+        width: 40%;
+      }
+      .hero-image img {
+        display: block;
+        box-shadow: var(--box-shadow);
+      }
+      .prose {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+</style>
 <Layout
   title="About Us"
   description="Lorem ipsum dolor sit amet"
@@ -10,3 +49,4 @@ import Layout from '../layouts/BlogPost.astro';
 >
 <p> We are a student society at Dalhousie University where are mission is to provide an opportunity to all local chess enthusiasts to play chess</p>
 </Layout>
+
