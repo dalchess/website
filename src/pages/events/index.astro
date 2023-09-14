@@ -6,11 +6,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const events = (await getCollection('events')).sort(
-  (a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf()
-);
----
+const currentDate = new Date();
 
+const events = (await getCollection('events')).filter((event) =>
+  event.data.eventDate >= currentDate
+).sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>

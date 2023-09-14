@@ -69,7 +69,7 @@ const currentDate = new Date();
       (async () => {
         const events = await getCollection('events');
         const upcomingEvents = events
-        .filter(event => new Date(event.data.eventDate) > currentDate)
+        .filter(event => new Date(event.data.eventDate) >= currentDate)
         events.sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
         const firstEvent = events[0];
         return (
@@ -88,7 +88,7 @@ const currentDate = new Date();
       (async () => {
         const socials = await getCollection('studleySocials');
         const upcomingSocials = socials
-          .filter(social => new Date(social.data.eventDate) > currentDate)
+          .filter(social => new Date(social.data.eventDate) >= currentDate)
           .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
         const firstSocial = upcomingSocials[0];
         return (
@@ -105,7 +105,7 @@ const currentDate = new Date();
             (async () => {
               const sextonsocials = await getCollection('sextonSocials');
               const upcomingsextonSocials = sextonsocials
-                .filter(sextonsocial => new Date(sextonsocial.data.eventDate) > currentDate)
+                .filter(sextonsocial => new Date(sextonsocial.data.eventDate) >= currentDate)
                 .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
               const firstSocial = upcomingsextonSocials[0];
               return (
