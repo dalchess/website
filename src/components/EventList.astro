@@ -2,9 +2,11 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 const currentDate = new Date();
+currentDate.setHours(0, 0, 0, 0);
 ---
+
 <style>
-.flex-container {
+  .flex-container {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -64,60 +66,59 @@ const currentDate = new Date();
   }
 
 </style>
+
 <div class="flex-container">
-    {
-      (async () => {
-        const events = await getCollection('events');
-        const upcomingEvents = events
+  {
+    (async () => {
+      const events = await getCollection('events');
+      const upcomingEvents = events
         .filter(event => new Date(event.data.eventDate) >= currentDate)
-        events.sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
-        const firstEvent = events[0];
-        return (
-          <div class="flex-item">
-            <h5>Check out our next Tournament!</h5>
-            <a href={`/events/${firstEvent.slug}/`}>
-              <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
-            </a> 
-            <h4 class="title">{firstEvent.data.title}</h4>
-            <p class="date"><FormattedDate date={firstEvent.data.eventDate} /></p>
-          </div>
-        );
-      })()
-    }
-    {
-      (async () => {
-        const socials = await getCollection('studleySocials');
-        const upcomingSocials = socials
-          .filter(social => new Date(social.data.eventDate) >= currentDate)
-          .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
-        const firstSocial = upcomingSocials[0];
-        return (
-          <div class="flex-item">
-            <h5>Come to our next Studley Social 6-8pm!</h5>
-            <img width={720} height={360} src={"/events/Logo.png"} alt="" />
-            <h4 class="location">{firstSocial.data.location}</h4>
-            <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
-          </div>
-        );
-      })()
-    }
-        {
-            (async () => {
-              const sextonsocials = await getCollection('sextonSocials');
-              const upcomingsextonSocials = sextonsocials
-                .filter(sextonsocial => new Date(sextonsocial.data.eventDate) >= currentDate)
-                .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
-              const firstSocial = upcomingsextonSocials[0];
-              return (
-                <div class="flex-item">
-                  <h5>Come to our next Sexton Social 6-8pm!</h5>
-                  <img width={720} height={360} src={"logo.png"} alt="" />
-                  <h4 class="location">{firstSocial.data.location}</h4>
-                  <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
-                </div>
-              );
-            })()
-          }
-  </div>
-</div>
+        .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+      const firstEvent = upcomingEvents[0];
+      return (
+        <div class="flex-item">
+          <h5>Check out our next Tournament!</h5>
+          <a href={`/events/${firstEvent.slug}/`}>
+            <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
+          </a>
+          <h4 class="title">{firstEvent.data.title}</h4>
+          <p class="date"><FormattedDate date={firstEvent.data.eventDate} /></p>
+        </div>
+      );
+    })()
+  }
+  {
+    (async () => {
+      const socials = await getCollection('studleySocials');
+      const upcomingSocials = socials
+        .filter(social => new Date(social.data.eventDate) >= currentDate)
+        .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+      const firstSocial = upcomingSocials[0];
+      return (
+        <div class="flex-item">
+          <h5>Come to our next Studley Social 6-8pm!</h5>
+          <img width={720} height={360} src={"/events/Logo.png"} alt="" />
+          <h4 class="location">{firstSocial.data.location}</h4>
+          <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
+        </div>
+      );
+    })()
+  }
+  {
+    (async () => {
+      const sextonsocials = await getCollection('sextonSocials');
+      const upcomingsextonSocials = sextonsocials
+        .filter(sextonsocial => new Date(sextonsocial.data.eventDate) >= currentDate)
+        .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+      const firstSocial = upcomingsextonSocials[0];
+      return (
+        <div class="flex-item">
+          <h5>Come to our next Sexton Social 6-8pm!</h5>
+          <img width={720} height={360} src={"logo.png"} alt="" />
+          <h4 class="location">{firstSocial.data.location}</h4>
+          <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
+        </div>
+      );
+    })()
+  }
 </div>

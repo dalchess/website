@@ -1,7 +1,7 @@
 ---
 title: 'Dal Open 2023'
 description: 'Dalhousie Open '
-eventDate: 'Sept 16 2023'
+eventDate: '09 16 2023'
 heroImage: '/events/dalopen.png'
 ---
 

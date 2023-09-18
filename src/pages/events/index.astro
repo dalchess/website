@@ -7,14 +7,29 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 const currentDate = new Date();
+currentDate.setHours(0, 0, 0, 0); 
 
-const events = await getCollection('events');
-const upcomingEvents = events
-.filter(event => new Date(event.data.eventDate) >= currentDate)
-        events.sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
-        const firstEvent = events[0];
+async function loadEvents() {
+  const events = await getCollection('events');
+  const upcomingEvents = events.filter(event => {
+    const eventDate = new Date(event.data.eventDate);
+    eventDate.setHours(0, 0, 0, 0); 
+    return eventDate >= currentDate;
+  });
 
+  upcomingEvents.sort((a, b) => {
+    const dateA = new Date(a.data.eventDate).getTime();
+    const dateB = new Date(b.data.eventDate).getTime();
+    return dateA - dateB;
+  });
+
+  return upcomingEvents;
+}
+
+const upcomingEvents = await loadEvents();
+const firstEvent = upcomingEvents[0];
 ---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -96,10 +111,10 @@ const upcomingEvents = events
     <Header />
     <main>
       <section> 
-        <h2>Check out the tounaments we have planned for this year!</h2>
+        <h2>Check out the tournaments we have planned for this year!</h2>
         <ul>
           {
-            events.map((event) => (
+            upcomingEvents.map((event) => (
               <li>
                 <a href={`/events/${event.slug}/`}>
                   <img
