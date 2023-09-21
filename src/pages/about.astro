@@ -46,30 +46,32 @@ import Header from '../components/Header.astro';
 <Header/>
 <Layout
   title="About Us"
-  description="Lorem ipsum dolor sit amet"
-  role=""
+  description=""
   heroImage="/about-banner.png"
+  pubDate={new Date()} 
 >
-<p> We are a student society at Dalhousie University where are mission is to provide an opportunity to all local chess enthusiasts to play chess</p>
+  <p>We are a student society at Dalhousie University where our mission is to provide an opportunity for all local chess enthusiasts to play chess</p>
 </Layout>
 <Layout
   title="Rikuto"
-  description="Lorem ipsum dolor sit amet"
-  role= "President"
+  description="President"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p>Hi everyone! I'm Rikuto, the president of the Dalhousie Chess Club and a third-year undergraduate mechanical engineering student. I have been playing chess since I was 7 and I am a two-time provincial champion for my age group. At the club, my role is to oversee all operations. I must organize executive team meetings and act as a primary contact for the club to ensure that we run the best events possible. I hope that in the future, we build an even stronger chess community where anybody who is even a little interested in chess would want to join, without having to worry about their skill level.</p>
 </Layout>
 <Layout
   title="Jonathan"
-  role= "Vice-President"
+  description= "Vice-President"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p>Hello everyone, I'm Jonathan, the vice-president of the Dalhousie Chess Club and currently in my fourth-year of my undergraduate degree studying chemistry. I have been greatly interested in chess for a while, and as a result, it has been exciting to be working with the other executive members to bring great events to our local chess community. My role in this club is to deal with administrative tasks with the president, and to help out with any other tasks such as event coordination if necessary. I look forward to seeing everyone at our events this year, and if you have any questions, please do not hesitate to reach to us via email at chess@dal.ca or through social media.</p>
 </Layout>
 <Layout
   title="Daniel"
-  role= "Treasurer"
+  description= "Treasurer"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p>Hello everyone, I'm Daniel, currently studying mechanical  engineering at Dalhousie University. My role in this club comprises of working with the different areas of the club to construct a robust budget sheet, so that the club can allocate its funds effectively while keeping a balanced budget. Furthermore,  my tasks involve applying for grants. My favourite chess player is Maxime Vanchier-Lagrave, a French chess grandmaster due to playing games that require nerves of steel!</p>
@@ -77,35 +79,40 @@ import Header from '../components/Header.astro';
 
 <Layout
   title="Jiil"
-  role= "Tournaament Director"
+  description= "Tournaament Director"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p>Hello, my name is Jiil. I'm a third-year engineering student and the tournament director of the club. I'd say I'm still a beginner level chess player who only plays casually, but I love the game. My role in this club consists of creating a detailed tournament schedule, and working with Dalhousie University to coordinate these events such as booking rooms. It is my goal to host as many tournaments as we can that all players can enjoy!</p>
 </Layout>
 <Layout
   title="Roxana"
-  role= "Seminar Director"
+  description= "Seminar Director"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p> Hi everyone, my name is Roxana! I am a medical student at Dalhousie University, and I love chess. I am currently the seminar director which involves creating a seminar schedule, working with the university to coordinate these events, and contacting potential seminar teachers. I’m also looking forward to increasing the representation for women in chess and I hope that everyone from all skill levels join our seminars! Looking forward to meeting you all.</p>
 </Layout>
 <Layout
   title="Jamil"
-  role= "Health relations Director"
+  description= "Health relations Director"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p>Hi everyone, my name is Jamil, currently a PhD candidate in Dr. Alon Friedman's lab where I research on the topic of traumatic brain injuries. I have been invested in chess for a very long time and currently, I am a CFC member and the Health Relations Director for the Dalhousie Chess Club. My role involves managing the “Chess for Brain” initiative,  where myself and other members of this initiative aim to organize recurrent social events of chess at local long-term care facilities to spread the cognitive benefits of chess. I am also planning collaborative works with the Brain Repair Centre (BRC) to coordinate fundraisers and help raise awareness on brain illnesses and injuries.  </p>
 </Layout>
 <Layout
   title="Gavin"
-  role= "Secretary"
+  description= "Secretary"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p> Hi, my name is Gavin, and I am the secretary for this club. I am currently in my 3rd year studying electrical engineering. As the secretary, my role comprises of officially taking meeting notes, organizing important documents related to this club, and helping out with any other tasks if needed. My hobbies are reading, cooking, and playing chess. I'm looking forward to meeting everybody over the course of the year!</p>
 </Layout>
 <Layout
   title="Kanav"
-  role= "Discord Server Manager"
+  description= "Discord Server Manager"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p> Hi everyone, my name is Kanav, currently studying computer science at Dalhousie University. I have been playing chess since high school but really got into it around 2-3 years ago. My first over the board tournament was the NS Open in 2023. Currently, I am the Discord Server Manager, which consists of keeping an active discord server that makes sure announcements and activities are maintained for our members in the server. Furthermore, I am also working with Chris for deploying our club’s website. I am looking forward to meeting each one of you personally, so come say hi at our socials!</p>
@@ -113,10 +120,14 @@ import Header from '../components/Header.astro';
 
 <Layout
   title="Chris"
-  role= "Web Developer"
+  description= "Web Developer"
+  pubDate={new Date()} 
   heroImage="/exec/chris.png"
 >
 <p> Hi I'm Chris a web developer for the dal chess club! I started playing chess around the start of covid and ended up getting to play a game with  GM Aman Hambleton and he put me on his YouTube last year!</p>
 </Layout>
+
+
+
 
 <Footer>
