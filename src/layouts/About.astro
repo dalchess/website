@@ -4,15 +4,16 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { renderPage } from 'astro/dist/runtime/server';
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, pubDate, role, heroImage } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -97,7 +98,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</head>
 
 	<body>
-		<Header />
 		<main>
 			<article>
 				<div class="hero-image">
@@ -106,12 +106,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<div class="prose">
 					<div class="title">
 						<h1>{title}</h1>
+						<h5>{role}</h5>
 						<hr />
 					</div>
 					<slot />
 				</div>
 			</article>
 		</main>
-		<Footer />
 	</body>
 </html>

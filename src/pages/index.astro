@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import EventList from '../components/frontpage/EventList.astro';
+import MainImage from '../components/frontpage/MainImage.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -95,10 +96,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   }
 </style>
 <Header />
-
+<MainImage/>
 <div class="wrapper">
-  <div class="main-content">
+  <div class="main-content">  
+      
     <h1>♜ Dalhousie Chess Club ♜</h1>
     <p>We're here to run exciting tournaments, host socials, and organize seminars!</p>
+
     <EventList/>
    <Footer />
