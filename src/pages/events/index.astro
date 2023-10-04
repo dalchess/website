@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import MainEvent from '../../components/events/MainEvent.astro';
 
 const currentDate = new Date();
 currentDate.setHours(0, 0, 0, 0); 
@@ -31,6 +32,7 @@ const firstEvent = upcomingEvents[0];
 ---
 
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -52,6 +54,7 @@ const firstEvent = upcomingEvents[0];
       ul li * {
         text-decoration: none;
         transition: 0.2s ease;
+        text-align: center;
       }
       ul li:first-child {
         max-width: 100%;
@@ -109,6 +112,7 @@ const firstEvent = upcomingEvents[0];
   </head>
   <body>
     <Header />
+    <MainEvent/>
     <main>
       <section> 
         <h2>Check out the tournaments we have planned for this year!</h2>
