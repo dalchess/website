@@ -23,7 +23,10 @@ async function loadEvents() {
     const dateB = new Date(b.data.eventDate).getTime();
     return dateA - dateB;
   });
-
+  // Remove the first event
+  if (upcomingEvents.length > 0) {
+    upcomingEvents.shift();
+  }
   return upcomingEvents;
 }
 

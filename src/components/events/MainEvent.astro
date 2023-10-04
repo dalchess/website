@@ -54,8 +54,7 @@ currentDate.setHours(0, 0, 0, 0);
       }
       p{
         margin: 0;
-        padding: 0;
-        text-decoration: none !important;
+        padding: 0; 
       
       }
 			.date {
@@ -114,6 +113,8 @@ currentDate.setHours(0, 0, 0, 0);
         text-decoration: none;
         transition: 0.2s ease;
         text-align: center;
+        margin: 0;
+        padding: 0;
       }
       .title h4 {
         margin: 0 0 0.5em 0;
@@ -132,6 +133,10 @@ currentDate.setHours(0, 0, 0, 0);
 <body>
   <main>
     <article>
+      <div class="prose">
+        <h2> Checkout our next Tournament!</h2>
+        <p>We like to host as many events as possible, mainly having tournaments its always important to be up to date on our next event! check out our most recent event here!</p>
+</div>
         {
           (async () => {
             const events = await getCollection('events');
@@ -151,10 +156,7 @@ currentDate.setHours(0, 0, 0, 0);
             );
           })()
         }
-        <div class="prose">
-                <h2> Checkout our next Tournament!</h2>
-                <p>We like to host as many events as possible, mainly having tournaments its always important to be up to date on our next event! check out our most recent event here!</p>
-        </div>
+
       </div>
     </article>
   </main>
