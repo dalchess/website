@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://dalchess.github.io',
+	site: 'https://chrisboudreau1999.github.io',
 	base: '/website',
 });
