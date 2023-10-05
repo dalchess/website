@@ -2,7 +2,7 @@
 title: 'Dalhousie Chess Championship (DCC): '
 description: 'Dalhousie Chess Championship '
 eventDate: 'Mar 2 2024'
-heroImage: '/events/Logo.png'
+heroImage: '/website/events/Logo.png'
 ---
 
 Time Control: Game in 90 minutes with a 30-seconds increment from move 1.

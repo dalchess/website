@@ -2,7 +2,7 @@
 title: 'Dalhousie Winter Blitz Battle'
 description: 'Dalhousie Winter Blitz Battle'
 eventDate: 'Feb 5 2024'
-heroImage: '/events/WinterBlitz.png'
+heroImage: '/website/events/WinterBlitz.png'
 ---
 
  Time Control: Game in 5 minutes with a 5-seconds increment from move 1.

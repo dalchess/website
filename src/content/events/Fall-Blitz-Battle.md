@@ -2,7 +2,7 @@
 title: 'Dalhousie Fall Blitz Battle'
 description: 'Dalhousie Fall Blitz Battle'
 eventDate: 'Nov 14 2023'
-heroImage: '/events/FallBlitz.png'
+heroImage: '/website/events/FallBlitz.png'
 ---
 
  Time Control: Game in 5 minutes with a 5-seconds increment from move 1.

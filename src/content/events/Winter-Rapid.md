@@ -2,7 +2,7 @@
 title: 'Dalhousie Winter Rapid Open (DCC Qualifier)'
 description: 'Winter Rapid Open'
 eventDate: 'Jan 14, 2024'
-heroImage: '/events/WinterRapid.png'
+heroImage: '/website/events/WinterRapid.png'
 ---
 
 Time Control: Game in 25 minutes with a 5-seconds delay from move 1.
