@@ -146,7 +146,7 @@ currentDate.setHours(0, 0, 0, 0);
             const firstEvent = upcomingEvents[0];
             return (
               <div class="hero-image"> 
-                <a href={`/events/${firstEvent.slug}/`}>
+                <a href={`/website/tournaments/${firstEvent.slug}/`}>
                 <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
                 <h4 class="title">{firstEvent.data.title}</h4>
                 <p class="date"><FormattedDate date={firstEvent.data.eventDate} /></p>
