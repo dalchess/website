@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
-const blog = defineCollection({
+const news = defineCollection({
   // Type-check frontmatter using a schema
   schema: z.object({
     title: z.string(),
@@ -30,6 +30,20 @@ const events = defineCollection({
     heroImage: z.string().optional(),
   }),
 });
+
+const improves = defineCollection({
+  // Type-check frontmatter using a schema
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    eventDate: z
+      .string()
+      .or(z.date())
+      .transform((val) => new Date(val)),
+    heroImage: z.string().optional(),
+  }),
+});
+
 const studleySocials = defineCollection({
   // Type-check frontmatter using a schema
   schema: z.object({
@@ -49,4 +63,4 @@ const sextonSocials = defineCollection({
 
 
 
-export const collections = { blog, events,studleySocials,sextonSocials };
+export const collections = { news, events,improves,studleySocials,sextonSocials };
