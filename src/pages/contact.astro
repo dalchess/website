@@ -1,10 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import FormattedDate from '../FormattedDate.astro';
-const currentDate = new Date();
-currentDate.setHours(0, 0, 0, 0);
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 <style>
 		
 			main {
@@ -52,24 +53,27 @@ currentDate.setHours(0, 0, 0, 0);
         padding: 0;
         
       }
-    p{
+      p{
         margin: 0;
         padding: 0; 
       
-    }   
-    .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
+      }
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
         text-align: center;
-    }
-    .last-updated-on {
-        font-style: italic;
-    }
-    .hero-image a:hover h4,
-    .hero-image a:hover .date {
-        color: #FAC800;
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+      .hero-image a:hover h4,
+      .hero-image a:hover .date {
+        color: #000000;
         text-decoration: none;
-    }
+      }
+      a{
+        color: blue;
+      }
       .hero-image a{
         text-decoration: none;
         transition: 0.2s ease;
@@ -78,21 +82,14 @@ currentDate.setHours(0, 0, 0, 0);
       .hero-image a:hover img {
         box-shadow: var(--box-shadow);
       }
-      @media (mAX-width:740px){
-        article {
-        display: flex;
-        flex-direction: column-reverse;
-      }
-    }
-    @media (min-width:740px){
+	@media (min-width:740px){
 				main {
         width: calc(100% - 2em);
         margin: 0;
       }
       article {
         display: flex;
-        flex-direction: row-reverse;
-      }     
+      }
    
       .hero-image {
         display: flex;
@@ -117,6 +114,10 @@ currentDate.setHours(0, 0, 0, 0);
         color: rgb(var(--black));
         
       }
+      ul{
+        padding-left: none;
+        padding-bottom: 10%;
+      }
       .title h4 {
         margin: 0 0 0.5em 0;
       }
@@ -130,26 +131,25 @@ currentDate.setHours(0, 0, 0, 0);
       }
 			}
 </style>
-
+<Header/>
 <body>
   <main>
     <article>
     <div class="prose">
-        <h2> Book Library</h2>
-        <p>We are offering book rentals for those who wish to improve in Chess</p>
+        <h2>Contact Us</h2>
+        <p>Check out our Community </p>
         <ul style="list-style: none; padding:0%">
-            <li>Amateur's Mind</li>
-            <li>Reassess Your Chess</li>
-            <li>Chess Life</li>
-            <li>Secrets of Chess</li>
-            <li>Chess Puzzles</li>
-            <li>Sherlock Holmes</li>
+            <a href="https://discord.gg/rjVPspkGwE"><li>Discord</li></a> 
+            <a href="https://www.instagram.com/dalchess/"><li>Instagram</li></a>
+            <a href="https://www.facebook.com/dalchess"><li>Facebook</li></a>
+            <a href = "mailto: chess@dal.ca?subject=Add to Mailing List &body=Hi I would like to be added to the Mailing List!">Join our mailing list</a>
         </ul>
-        <a href = "mailto: chess@dal.ca?subject=Book Library Rental &body=Hi I was wondering about borring a book from your Library">Email to Borrow</a>
+        
     </div>
     <div class="hero-image"> 
-        <img width={720} height={360} src={"/library.png"} alt="" /> 
+        <img width={720} height={360} src={"/resources.jpg"} alt="" /> 
       </div>
     </article>
   </main>
 </body>
+<Footer/>

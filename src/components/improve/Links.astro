@@ -52,24 +52,27 @@ currentDate.setHours(0, 0, 0, 0);
         padding: 0;
         
       }
-    p{
+      p{
         margin: 0;
         padding: 0; 
       
-    }   
-    .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
+      }
+      a{
+        color: blue;
+      }
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
         text-align: center;
-    }
-    .last-updated-on {
-        font-style: italic;
-    }
-    .hero-image a:hover h4,
-    .hero-image a:hover .date {
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+      .hero-image a:hover h4,
+      .hero-image a:hover .date {
         color: #FAC800;
         text-decoration: none;
-    }
+      }
       .hero-image a{
         text-decoration: none;
         transition: 0.2s ease;
@@ -78,21 +81,20 @@ currentDate.setHours(0, 0, 0, 0);
       .hero-image a:hover img {
         box-shadow: var(--box-shadow);
       }
-      @media (mAX-width:740px){
+    @media (mAX-width:740px){
         article {
         display: flex;
         flex-direction: column-reverse;
       }
     }
-    @media (min-width:740px){
+	@media (min-width:740px){
 				main {
         width: calc(100% - 2em);
         margin: 0;
       }
       article {
         display: flex;
-        flex-direction: row-reverse;
-      }     
+      }
    
       .hero-image {
         display: flex;
@@ -117,6 +119,10 @@ currentDate.setHours(0, 0, 0, 0);
         color: rgb(var(--black));
         
       }
+      ul{
+        padding-left: none;
+        padding-bottom: 10%;
+      }
       .title h4 {
         margin: 0 0 0.5em 0;
       }
@@ -135,20 +141,18 @@ currentDate.setHours(0, 0, 0, 0);
   <main>
     <article>
     <div class="prose">
-        <h2> Book Library</h2>
-        <p>We are offering book rentals for those who wish to improve in Chess</p>
+        <h2>Learning Resources</h2>
+        <p>Check out these links to some great chess resources</p>
         <ul style="list-style: none; padding:0%">
-            <li>Amateur's Mind</li>
-            <li>Reassess Your Chess</li>
-            <li>Chess Life</li>
-            <li>Secrets of Chess</li>
-            <li>Chess Puzzles</li>
-            <li>Sherlock Holmes</li>
+            <a href="https://www.chess.com" target="_blank"><li>Try Chess.com</li></a>
+            <a href="https://www.lichess.org" target="_blank"><li>Try lichess</li></a>
+            <a href="https://chesstempo.com/" target="_blank"><li>Try Chesstempo</li></a>
+            <a href="https://www.youtube.com/playlist?list=PLT1F2nOxLHOfQ-eoJTpyvKkQFwYewDduj" target="_blank"><li>Watch GM Daniel Naroditsky's speedrun</li></a>
         </ul>
-        <a href = "mailto: chess@dal.ca?subject=Book Library Rental &body=Hi I was wondering about borring a book from your Library">Email to Borrow</a>
+        
     </div>
     <div class="hero-image"> 
-        <img width={720} height={360} src={"/library.png"} alt="" /> 
+        <img width={720} height={360} src={"/resources.jpg"} alt="" /> 
       </div>
     </article>
   </main>
