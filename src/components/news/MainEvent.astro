@@ -146,7 +146,7 @@ currentDate.setHours(0, 0, 0, 0);
             const firstpub = upcomingpubs[0];
             return (
               <div class="hero-image"> 
-                <a href={`/website/tournaments/${firstpub.slug}/`}>
+                <a href={`/website/news/${firstpub.slug}/`}>
                 <img width={720} height={360} src={firstpub.data.heroImage} alt="" />
                 <h4 class="title">{firstpub.data.title}</h4>
                 <p class="date"><FormattedDate date={firstpub.data.pubDate} /></p>
