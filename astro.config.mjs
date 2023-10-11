@@ -7,5 +7,4 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://dalchess.github.io',
 	base: '/website',
-
 });
