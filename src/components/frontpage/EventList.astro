@@ -78,7 +78,7 @@ currentDate.setHours(0, 0, 0, 0);
       return (
         <div class="flex-item">
           <h5>Check out our next Tournament!</h5>
-          <a href={`/tournaments/${firstEvent.slug}/`}>
+          <a href={`/website/tournaments/${firstEvent.slug}/`}>
             <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
           </a>
           <h4 class="title">{firstEvent.data.title}</h4>
@@ -97,7 +97,7 @@ currentDate.setHours(0, 0, 0, 0);
       return (
         <div class="flex-item">
           <h5>Come to our next Studley Social 6-8pm!</h5>
-          <img width={720} height={360} src={"/website/events/Logo.PNG"} alt="" />
+          <img width={720} height={360} src={"/website/events/Logo.png"} alt="" />
           <h4 class="location">{firstSocial.data.location}</h4>
           <p class="date"><FormattedDate date={firstSocial.data.eventDate} /></p>
         </div>
