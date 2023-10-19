@@ -1,0 +1,79 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+import SocialMediaIcon from './SocialMediaIcon.astro';
+---
+
+<header>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <nav>
+    <a id="logo" href="/website"><img src="/website//logo.png" alt="logo" width="70px"/></a>
+    <div class="internal-links">
+      <HeaderLink href="/website/">Home</HeaderLink>
+      <HeaderLink href="/website/tournaments">Tournaments</HeaderLink>
+      <HeaderLink href="/website/improve">Improve</HeaderLink>
+      <HeaderLink href="/website/news">News</HeaderLink>
+      <!-- <HeaderLink href="/blog">Blog</HeaderLink> -->
+     <!--<HeaderLink href="/join">Join Us</HeaderLink> -->
+      <HeaderLink href="/website/about">About</HeaderLink>
+     <!--<HeaderLink href="/website/contact">Contact Us</HeaderLink> --> 
+    </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background:linear-gradient(90deg, #000000 0%, #FAC800 100%);;
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+    color: white;
+  }
+  #logo{
+    all: initial; 
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+    color: white;
+  }
+
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: black;
+    color: black;
+  }
+
+  .social-links,
+  .social-links a {
+    display: flex;
+    
+  }
+   .social-links {
+      display: none;
+    }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+    nav a {
+    font-size: small;
+  }
+  }
+</style>

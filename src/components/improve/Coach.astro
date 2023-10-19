@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../FormattedDate.astro';
+const currentDate = new Date();
+currentDate.setHours(0, 0, 0, 0);
+---
+
+<style>
+		
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.hero-image {
+				max-width: 100%;
+        text-decoration: none;
+        
+			}
+			.hero-image img {
+				display: block;
+				margin: 0 auto;
+				height: auto;
+        text-decoration: none;
+        transition: 0.2s ease;
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				color: rgb(var(--gray-dark));
+        text-align: center;
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+        text-decoration: none;
+        transition: 0.2s ease;
+			}
+			.title h4 {
+        font-size: 2.369rem;
+        justify-content: center;
+        padding-bottom: 0;
+        margin: 0;
+        text-decoration: none;
+        transition: 0.2s ease;
+			}
+      h4{
+        font-size: 2.369rem;
+        padding: 0;
+        
+      }
+    p{
+        margin: 0;
+        padding: 0; 
+      
+    }   
+    .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+        text-align: center;
+    }
+    .last-updated-on {
+        font-style: italic;
+    }
+    .hero-image a:hover h4,
+    .hero-image a:hover .date {
+        color: #FAC800;
+        text-decoration: none;
+    }
+      .hero-image a{
+        text-decoration: none;
+        transition: 0.2s ease;
+        text-align: center;
+      }
+      .hero-image a:hover img {
+        box-shadow: var(--box-shadow);
+      }
+      @media (mAX-width:740px){
+        article {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+    @media (min-width:740px){
+				main {
+        width: calc(100% - 2em);
+        margin: 0;
+      }
+      article {
+        display: flex;
+        flex-direction: row-reverse;
+      }     
+   
+      .hero-image {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        justify-content: center;
+      }
+      .hero-image img {
+        max-width: 70%;
+      }
+      .prose {
+        max-width: 1000px;
+        max-width: calc(100% - 2em);
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        
+      }
+      .title h4 {
+        margin: 0 0 0.5em 0;
+      }
+      .date {
+       margin: 0;
+        text-align: center;
+        color: rgb(var(--gray));
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+			}
+</style>
+
+<body>
+  <main>
+    <article>
+    <div class="prose">
+        <h2>Coach 1</h2>
+        <p>coach moment</p>
+    </div>
+    <div class="hero-image"> 
+        <img width={720} height={360} src={"/website/library.png"} alt="" /> 
+      </div>
+    </article>
+  </main>
+</body>
