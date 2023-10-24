@@ -129,6 +129,11 @@ currentDate.setHours(0, 0, 0, 0);
         font-style: italic;
       }
 			}
+      ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
 </style>
 
 <body>
@@ -136,10 +141,18 @@ currentDate.setHours(0, 0, 0, 0);
     <article>
     <div class="prose">
         <h2>Coach 1</h2>
-        <p>coach moment</p>
+        <ul>
+          <li>Rating: 2000 FIDE</li>
+          <li>Rates: $20/hr</li>
+          <li>Contact info chess@gmail.com</li>
+          <li>Rating range 400-1800 elo</li> 
+          <li>Delivery method: Zoom meeting</li>
+          <li>Availability: weekends</li> 
+        </ul>
+
     </div>
     <div class="hero-image"> 
-        <img width={720} height={360} src={"/website/library.png"} alt="" /> 
+        <img width={720} height={360} src={"/website/exec/rikuto.png"} alt="" /> 
       </div>
     </article>
   </main>
