@@ -52,24 +52,24 @@ currentDate.setHours(0, 0, 0, 0);
         padding: 0;
         
       }
-    p{
+      p{
         margin: 0;
         padding: 0; 
       
-    }   
-    .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
+      }
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
         text-align: center;
-    }
-    .last-updated-on {
-        font-style: italic;
-    }
-    .hero-image a:hover h4,
-    .hero-image a:hover .date {
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+      .hero-image a:hover h4,
+      .hero-image a:hover .date {
         color: #FAC800;
         text-decoration: none;
-    }
+      }
       .hero-image a{
         text-decoration: none;
         transition: 0.2s ease;
@@ -78,22 +78,14 @@ currentDate.setHours(0, 0, 0, 0);
       .hero-image a:hover img {
         box-shadow: var(--box-shadow);
       }
-      @media (mAX-width:740px){
-        article {
-        display: flex;
-        flex-direction: column-reverse;
-      }
-    }
-    @media (min-width:740px){
+			@media (min-width:740px){
 				main {
         width: calc(100% - 2em);
         margin: 0;
       }
       article {
         display: flex;
-        flex-direction: row-reverse;
-      }     
-   
+      }
       .hero-image {
         display: flex;
         flex-wrap: wrap;
@@ -117,6 +109,13 @@ currentDate.setHours(0, 0, 0, 0);
         color: rgb(var(--black));
         
       }
+      .hero-image a{
+        text-decoration: none;
+        transition: 0.2s ease;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
       .title h4 {
         margin: 0 0 0.5em 0;
       }
@@ -134,12 +133,30 @@ currentDate.setHours(0, 0, 0, 0);
 <body>
   <main>
     <article>
-    <div class="prose">
-        <h2>Tournaments</h2>
-        <p>As a Society we try and host a bunch of tournaments each semester! we welcome all players to show up and play</p>
-    </div>
-    <div class="hero-image"> 
-        <img width={720} height={360} src={"/website/tourny.png"} alt="" /> 
+      <div class="prose">
+        <h2> Checkout our old tournaments!</h2>
+        <p>These are all the past tournaments we have held</p>
+</div>
+        {
+          (async () => {
+            const events = await getCollection('events');
+            const upcomingEvents = events
+              .filter(event => new Date(event.data.eventDate) <= currentDate)
+              .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+            const firstEvent = upcomingEvents[0];
+            return (
+              <div class="hero-image"> 
+                <a href={`/website/tournaments/${firstEvent.slug}/`}>
+                <img width={720} height={360} src={firstEvent.data.heroImage} alt="" />
+                <h4 class="title">{firstEvent.data.title}</h4>
+                <p class="date"><FormattedDate date={firstEvent.data.eventDate} /></p>
+                </a>
+              </div> 
+            
+            );
+          })()
+        }
+
       </div>
     </article>
   </main>
